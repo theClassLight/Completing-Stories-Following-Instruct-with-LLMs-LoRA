@@ -13,7 +13,7 @@ Configure the Python environment using the environment.yaml file:
 使用 `environment.yaml` 文件配置 Python 环境：
 
 ```bash
-conda env create -f environment.yaml
+conda env create -f environment.yml
 ```
 
 ## Dataset Generation 数据集生成
@@ -24,7 +24,7 @@ Divide paragraphs from the novel corpus and extract the background and plot of e
 从小说数据集中划分段落，并使用 Qwen2.5-3B 模型提取段落的背景与情节。运行以下命令生成带有标注的数据集，其中参数`corpus_path`为小说数据文件路径，`n`为每段的字数，`model_dir`可以为本地的模型路径或者模型名称：
 
    ```bash
-   python segment_label.py --corpus_path "./sample_data" --output_dir "segment_label" --n 800 --model_dir "Qwen/Qwen2.5-3B-Instruct"
+   python segment_label.py --corpus_path "./sample_data" --output_dir "segment_label" --n 800 --model_dir "/remote-home/modelscope/hub/Qwen/Qwen2___5-7B-Instruct"
    ```
 The format of the converted data is as follows:
 
@@ -51,11 +51,11 @@ Use the following command to train the LoRA model:
 使用以下命令训练 LoRA 模型：
 
 ```bash
-python train_lora.py --model_name "Qwen/Qwen2.5-7B-Instruct" --max_seq_length 1000 --output_dir "./output"
+python train_lora.py --model_name "/remote-home/modelscope/hub/Qwen/Qwen2___5-7B-Instruct" --max_seq_length 1000 --output_dir "./output"
 ```
 
 Finally, thanks to the anonymous contributor for using this pipeline on Hugging Face to create the [novel instruction dataset]((https://huggingface.co/datasets/cgxjdzz/h-corpus-Instruct)) and train the [Qwen-2.5-7B LoRA model](https://huggingface.co/cgxjdzz/Qwen-2.5-7B-Instruct-novel-lora).
 
-
-
-最后感谢不知名贡献者在hugging face上使用本pipeline提取的[小说指示数据集](https://huggingface.co/datasets/cgxjdzz/h-corpus-Instruct)与训练的[Qwen-2.5-7B Lora](https://huggingface.co/cgxjdzz/Qwen-2.5-7B-Instruct-novel-lora)。
+```bash
+docker run -it --gpus all -m 30g --cpus 10 -v C:/Users/admin/.cache:/remote-home -p 9999:22 --name novel-0 torch2.1.1_cu118_py310_ubuntu20.04
+```

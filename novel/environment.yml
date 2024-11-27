@@ -1,6 +1,7 @@
-name: myenv
+name: novel
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=5.1=1_gnu
@@ -17,7 +18,6 @@ dependencies:
   - ncurses=6.4=h6a678d5_0
   - openssl=3.0.15=h5eee18b_0
   - pip=24.2=py312h06a4308_0
-  - python=3.12.4=h5148396_1
   - readline=8.2=h5eee18b_0
   - setuptools=75.1.0=py312h06a4308_0
   - sqlite=3.45.3=h5eee18b_0
@@ -93,4 +93,4 @@ dependencies:
       - urllib3==2.2.3
       - xxhash==3.5.0
       - yarl==1.13.1
-prefix: /home/vipuser/miniconda3/envs/myenv
+prefix: /home/vipuser/miniconda3/envs/novel
